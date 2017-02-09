@@ -32,7 +32,7 @@ $(selector).bulaga({"duration": 2000});
 |position|The percentage of your screen you want your element to show relatively to the original position of your element. Basically, the higher the number, the sooner the element will show.|`Integer`|0-1|.25|
 |bounce|Option for a bounce effect.|`Boolean`|`true` `false`|`false`|
 |distance|The starting distance from the original position.|`Integer`||100|
-|base|The css attribute to be used for animation. This can only be used if the element's position is absolute or fixed. If false, the css attribute to be used dependes on the direction of your slide animation.|`String`|`top` `bottom` `left` `right`|`false`|
+|base|The css attribute to be used for animation. This can only be used if the element's position is absolute or fixed. If false, the css attribute to be used depends on the direction of your slide animation.|`String`|`top` `bottom` `left` `right`|`false`|
 |repeat|The animation will repeat if scrolled again.|`Boolean`|`true` `false`|`false`|
 |callback|Things you want to do after the animation has ended.|`Function`||`false`|
 
