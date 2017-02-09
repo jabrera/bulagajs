@@ -22,7 +22,7 @@ $(selector).bulaga(options);
 You may also add some options depending on your preferences. _options_ is in JSON format. If you want to set the duration of your animation, you can do...
 
 ```javascript
-$(selector).bulaga({"duration"- 2000});
+$(selector).bulaga({"duration": 2000});
 ```
 
 ### Options
