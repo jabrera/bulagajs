@@ -1,6 +1,5 @@
 # bulaga
 
----
 
 ### About
 
