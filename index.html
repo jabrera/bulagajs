@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bulaga</title>
+	<style>
+		body {
+			font-family: "Times New Roman";
+		}
+		.wrapper {
+			max-width: 960px;
+			padding: 24px;
+			margin: 0px auto;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: 400;
+		}
+		h3 {
+			margin-top: 48px;
+		}
+		hr {
+			border: 0px;
+			border-top: 1px solid rgba(0,0,0,.1);
+		}
+		p {
+			line-height: 150%;
+		}
+		pre {
+			padding: 12px;
+			white-space: pre-line;
+			background: rgba(0,0,0,.05);
+		}
+		table.parameter_info {
+			border-collapse: collapse;
+		}
+		table.parameter_info td {
+			padding: 8px 12px;
+		}
+		table.parameter_info tr:not(:last-child) td {
+			border-bottom: 1px solid #e9e9e9;
+		}
+		table.parameter_info td:first-child {
+			font-weight: bold;
+			border-right: 1px solid #e9e9e9;
+		}
+		ul.parameter {
+			list-style-type: none;
+			padding: 0px;
+		}
+		ul.parameter li {
+			padding: 16px;
+		}
+		ul.parameter li:nth-child(even) {
+			background: rgba(0,0,0,.05);
+		}
+		ul.parameter li:nth-child(odd) {
+			background: rgba(0,0,0,.02);
+		}
+		.sample {
+			display: table;
+			max-width: 250px;
+			height: 200px;
+			background: #005cb9;
+			border: 2px solid #005cb9;
+			margin: 100px auto;
+		}
+		.sample span {
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			color: white;
+			padding: 24px;
+		}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<script src="vendor/jquery.min.js"></script>
+	<script src="dist/bulaga-1.0.0.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Bulaga</h1>
+		<hr>
+		<h3>About</h3>
+		<p><i>Bulaga</i> is an open-source javascript library using jQuery that shows a content with effect when the page is scrolled. Bulaga is the Filipino version of Peek-a-boo!</p>
+		<h3>Prerequisite</h3>
+		<ul>
+			<li>jQuery</li>
+		</ul>
+		<h3>How to use</h3>
+		<p>Using a normal DOM selector in jQuery, call the bulaga() function.</p>
+		<pre>$(selector).bulaga(options);</pre>
+		<p>You may also add some options depending on your preferences. _options_ is in JSON format. If you want to set the duration of the animation, you can do...</p>
+		<pre>$(selector).bulaga({"duration": 5000});</pre>
+		<h3>Options</h3>
+		<ul class="parameter">
+			<li>
+				<b>animation</b>
+				<p>Sets the type of animation you want for the element</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>values</td>
+						<td>"FADE_IN", "SLIDE_LEFT", "SLIDE_RIGHT", "SLIDE_UP", "SLIDE_DOWN"</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>"FADE_IN"</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>duration</b>
+				<p>The duration of animation in milliseconds you want for the element.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Integer</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>500</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>position</b>
+				<p>The percentage of your screen you want your element to show relatively to the original position of your element. Basically, the higher the number, the sooner the element will show.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Integer</td>
+					</tr>
+					<tr>
+						<td>values</td>
+						<td>0-1</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>.25</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>bounce</b>
+				<p>Option for a bounce effect.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Boolean</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>false</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>distance</b>
+				<p>The starting distance from the original position.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Integer</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>100</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>base</b>
+				<p>The css attribute to be used for animation. This can only be used if the element's position is absolute or fixed. If false, the css attribute to be used depends on the direction of your slide animation.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>values</td>
+						<td>"top", "bottom", "left", "right"</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>false</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>repeat</b>
+				<p>The animation will repeat if scrolled again.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Boolean</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>false</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<b>callback</b>
+				<p>Things you want to do after the animation has ended.</p>
+				<table class="parameter_info">
+					<tr>
+						<td>type</td>
+						<td>Function</td>
+					</tr>
+					<tr>
+						<td>default</td>
+						<td>false</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+		<h3>Examples</h3>
+		<div class="sample" id="sample1"><span>Fade In</span></div>
+		<div class="sample" id="sample2"><span>Slide Left</span></div>
+		<div class="sample" id="sample3"><span>Slide Right</span></div>
+		<div class="sample" id="sample4"><span>Slide Up</span></div>
+		<div class="sample" id="sample5"><span>Slide Down</span></div>
+		<div class="sample" id="sample6"><span>Slide Left with Bounce</span></div>
+		<div class="sample" id="sample7"><span>Slide Right with Bounce</span></div>
+		<div class="sample" id="sample8"><span>Slide Left with Bounce in 2 seconds</span></div>
+		<div class="sample" id="sample9"><span>Slide Right with Bounce in 2 seconds</span></div>
+		<script>
+			$("#sample1").bulaga({"animation": "FADE_IN", "repeat": true});
+			$("#sample2").bulaga({"animation": "SLIDE_LEFT", "repeat": true});
+			$("#sample3").bulaga({"animation": "SLIDE_RIGHT", "repeat": true});
+			$("#sample4").bulaga({"animation": "SLIDE_UP", "repeat": true});
+			$("#sample5").bulaga({"animation": "SLIDE_DOWN", "repeat": true});
+			$("#sample6").bulaga({"animation": "SLIDE_LEFT", "bounce": true, "repeat": true});
+			$("#sample7").bulaga({"animation": "SLIDE_RIGHT", "bounce": true, "repeat": true});
+			$("#sample8").bulaga({"animation": "SLIDE_UP", "duration": 2000, "bounce": true, "repeat": true});
+			$("#sample9").bulaga({"animation": "SLIDE_DOWN", "duration": 2000, "bounce": true, "repeat": true});
+		</script>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi veritatis minus ab consectetur distinctio eaque quibusdam corporis, quae quisquam deleniti, rerum magni natus. Quis minus, laborum reprehenderit eligendi! Quisquam qui explicabo impedit eum, adipisci assumenda reiciendis consequatur, ex mollitia ullam. Perferendis, eum ratione esse ea eius totam recusandae, reprehenderit enim quas, earum accusantium neque quaerat repellendus sequi? Doloribus, beatae, iure id reprehenderit eos ad, unde rem quam tempore quas nobis consequatur inventore magnam magni consequuntur ut sequi quibusdam, ratione odio. Expedita, reprehenderit, assumenda? At porro, asperiores quis commodi quo debitis, ad deleniti, repudiandae eum mollitia dolorem autem unde numquam officia a ipsum velit libero culpa magnam! Voluptas laudantium voluptates dicta et incidunt sit delectus velit necessitatibus, beatae, dolorem optio illo. Quod, pariatur modi cumque vitae praesentium cum tempore! Voluptates nostrum tempora, sit, reprehenderit sint minus distinctio vitae nam dolores dicta laboriosam architecto sequi nulla fuga mollitia sed natus quibusdam accusamus, veritatis delectus? Natus iusto, necessitatibus repellendus harum excepturi accusantium, odio provident dignissimos eveniet sed quam ex dolorum, cumque ea quaerat amet. Iusto ex placeat similique temporibus sint alias unde voluptates enim ratione dolor itaque repellendus beatae autem asperiores consequatur cum accusantium dolorum, amet illo mollitia ea nisi. Dolore quidem consequuntur animi culpa, assumenda eos fugit dolor! Dolorem eum adipisci dicta esse facilis ipsum modi neque, doloribus expedita nobis itaque atque dolore, aliquam quos. Natus repellat velit cupiditate modi doloribus provident, eius porro possimus non repudiandae sequi accusantium! Inventore alias, nesciunt, iusto a atque quas debitis repudiandae quo mollitia animi sed odit unde, blanditiis commodi consectetur explicabo reprehenderit architecto aliquam quod modi iure magni! Nobis recusandae incidunt, quaerat vitae, nam saepe. Voluptatem culpa quaerat, sunt facilis quod atque soluta corporis provident. Ipsum hic labore quasi voluptatum, quo accusamus, quisquam nisi doloribus esse rerum magnam aperiam illum consectetur, ab deserunt, quod qui harum corporis quos aliquam a amet sint reiciendis. Sed, eaque laborum mollitia amet perferendis praesentium veritatis optio magnam, tenetur nisi, asperiores temporibus, cupiditate maxime debitis! Incidunt maxime dicta debitis magni nam quis harum minus impedit unde, ducimus, consectetur pariatur deserunt vel ad recusandae eum sunt odio atque, ipsa beatae est, expedita earum quo rerum reiciendis. Deleniti amet labore maxime delectus recusandae molestias, placeat ipsa doloribus dolore eveniet iusto id error. Optio expedita cum dolorum officia doloremque itaque nihil impedit est alias soluta qui, id deleniti voluptatibus, dolore aspernatur minima excepturi blanditiis perspiciatis et! Quae maxime unde odit, magnam fugit? Error numquam, dignissimos in, quos cum, nesciunt animi deleniti voluptatum similique eos eveniet autem recusandae eligendi laboriosam. Quisquam consequuntur possimus, reiciendis optio omnis quas eum fugiat dicta adipisci quod sed eligendi obcaecati facere corporis sequi delectus. Consectetur totam doloribus, iusto molestias, voluptate consequuntur nam impedit, possimus, distinctio natus recusandae atque maxime! Architecto fuga modi hic alias sunt nisi iste cupiditate fugiat dicta vero, similique repudiandae cumque, perspiciatis delectus? Unde ipsa maxime, voluptatum? Aut quis iure dolor. Error doloremque assumenda adipisci porro eum officia voluptatem facilis eveniet enim quibusdam maiores accusamus dolorum quod dicta reiciendis accusantium possimus, dolore beatae quas, modi ut.</p>
+	</div>
+</body>
+</html>
